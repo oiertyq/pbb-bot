@@ -37,7 +37,7 @@
 
 			function pbbSend(str) {
 		  	request({
-		  		url: "https://akioi.ml:11451//api/feed/"+TheRoomId+"/post",
+		  		url: "https://akioi.ml:11451/api/feed/"+TheRoomId+"/post",
 		    	data: { content: str, token: TOKEN },
 		    	method: "POST"
 		  	}).then(resp => {
@@ -49,7 +49,7 @@
 
 			function pbbLoad(pbbPage) {
 				var resp = request({
-					url: "https://akioi.ml:11451//api/feed/"+TheRoomId+"/",
+					url: "https://akioi.ml:11451/api/feed/"+TheRoomId+"/",
 					data: {
 						page: pbbPage,
 						token: TOKEN
@@ -67,7 +67,7 @@
 			}
 			function pbbIdDel(id) {
 				request({
-					url: 'https://akioi.ml:11451//api/feed/delete',
+					url: 'https://akioi.ml:11451/api/feed/delete',
 					data: {
 						id: id,
 						token: TOKEN
