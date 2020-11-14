@@ -12,15 +12,22 @@
 			// pbb api
 			var TOKEN = "";
 			var TheRoomId = "";
+			
+			fuction checkit(){
+			    if(TOKEN==""&&TheRoomId=="") return 0;
+			    else pbbListen();
+			}
+			
 			function InputToken(tkn) {
 				TOKEN = tkn;
 				console.log("Got Token: "+TOKEN);
-				pbbListen();
+				checkit();
 			}
 			
 			function InputRoom(rmid) {
 				TheRoomId = rmid;
 				console.log("Got Room: "+TheRoomId);
+				checkit();
 			}
 			
 			const request = ({ url, data, method }) => new Promise((resolve, reject) => {
@@ -128,7 +135,7 @@
 				        pbbSend("OwO-Bot / 一言：「"+data.hitokoto +"」 | From: "+data.from);
 				    })
 				    .catch(console.error)
-				    setTimeout(function(){getHito(times-1)}, 1000);
+				    setTimeout(function(){getHito(times-1)}, 5000);
 				}
 			}
 			function StartBot() {
