@@ -14,9 +14,8 @@
 			function InputToken(tkn) {
 				TOKEN = tkn;
 				console.log("Got Token: "+TOKEN);
-				pbbLoad(1);
-				pbbListen();
 			}
+			
 			const request = ({ url, data, method }) => new Promise((resolve, reject) => {
 				$.ajax({
 					type: method,
