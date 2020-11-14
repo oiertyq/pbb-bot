@@ -140,7 +140,7 @@
 			var pbbListenServiceStarted=1;
 			function pbbListen() {
 				console.log("Start listening"); pbbListenServiceStarted = 0;
-				setInterval(function(){pbbLoad(1).then(resp => { cnt=chkresp(resp); for(var i=0; i<cnt;++i) { getHito(cnt) } });}, 20000);
+				setInterval(function(){pbbLoad(1).then(resp => { cnt=chkresp(resp); for(var i=0; i<cnt;++i) { getHito(cnt); } });}, 20000);
 			}
 			pbbListen();
 		</script>
