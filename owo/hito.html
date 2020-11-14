@@ -134,10 +134,12 @@
 			function StartBot() {
 				pbbListenServiceStarted = 1;
 				console.log('Bot Starts');
+				pbbSend('[OwO-bot Alert]: OwO-bot重新开启');
 			}
 			function CloseBot() {
 				pbbListenServiceStarted = 0;
 				console.log('Bot Stops');
+				pbbSend('[OwO-bot Alert]: OwO-bot被暂时关闭');
 			}
 			var pbbListenServiceStarted=1;
 			function pbbListen() {
