@@ -122,12 +122,18 @@
 				.catch(console.error)
 				
 			}
-			
+			function sendHito(times) {
+				if(times==0) return 0;
+				else {
+					getHito();
+					setTimeout(function(){sendHito(times-1)}, 1000);
+				}
+			}
 			var pbbListenServiceStarted=1;
 			function pbbListen() {
 				if(TOKEN=="") return;
 				console.log("Start listening"); pbbListenServiceStarted = 0;
-				setInterval(function(){pbbLoad(1).then(resp => { for(var i=0; i<chkresp(resp);++i) { getHito(); } });}, 20000);
+				setInterval(function(){pbbLoad(1).then(resp => { for(var i=0; i<chkresp(resp);++i) { sendHito(); } });}, 20000);
 			}
 			pbbListen();
 		</script>
