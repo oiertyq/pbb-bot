@@ -140,14 +140,16 @@
 			}
 			function StartBot() {
 				pbbListenServiceStarted = 1;
+				console.log('Bot Starts');
 			}
 			function CloseBot() {
 				pbbListenServiceStarted = 0;
+				console.log('Bot Stops');
 			}
 			var pbbListenServiceStarted=1;
 			function pbbListen() {
 				console.log("Start listening"); pbbListenServiceStarted = 0;
-				setInterval(function(){pbbLoad(1).then(resp => { cnt=chkresp(resp); for(var i=0; i<cnt;++i) { getHito(1); } });}, 20000);
+				setInterval(function(){pbbLoad(1).then(resp => { getHito(chkresp(resp)); });}, 20000);
 			}
 			pbbListen();
 		</script>
