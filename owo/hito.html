@@ -111,28 +111,24 @@
 				console.log(resp);
 				return count;
 			}
-			function getHito(){
-				fetch('https://v1.hitokoto.cn')
-				.then(response => response.json())
-				.then(data => {
-				const hitokoto = document.getElementById('hitokoto_text') 	
-				pbbSend("一言：「"+data.hitokoto +"」 | From: "+data.from);
-				})
-				.catch(console.error)
-				
-			}
-			function sendHito(times) {
+			function getHito(times){
 				if(times==0) return 0;
-				else {
-					getHito();
-					setTimeout(function(){sendHito(times-1)}, 1000);
+				else{
+				    fetch('https://v1.hitokoto.cn')
+				    .then(response => response.json())
+				    .then(data => {
+				        const hitokoto = document.getElementById('hitokoto_text') 	
+				        pbbSend("一言：「"+data.hitokoto +"」 | From: "+data.from);
+				    })
+				    .catch(console.error)
+				    setTimeout(function(){sendHito(times-1)}, 1000);
 				}
 			}
 			var pbbListenServiceStarted=1;
 			function pbbListen() {
 				if(TOKEN=="") return;
 				console.log("Start listening"); pbbListenServiceStarted = 0;
-				setInterval(function(){pbbLoad(1).then(resp => { for(var i=0; i<chkresp(resp);++i) { sendHito(); } });}, 20000);
+				setInterval(function(){pbbLoad(1).then(resp => { for(var i=0; i<chkresp(resp);++i) { getHito(chkresp(resp)); } });}, 20000);
 			}
 			pbbListen();
 		</script>
