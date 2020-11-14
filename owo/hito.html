@@ -13,21 +13,14 @@
 			var TOKEN = "";
 			var TheRoomId = "";
 			
-			fuction checkit(){
-			    if(TOKEN==""&&TheRoomId=="") return 0;
-			    else pbbListen();
-			}
-			
 			function InputToken(tkn) {
 				TOKEN = tkn;
 				console.log("Got Token: "+TOKEN);
-				checkit();
 			}
 			
 			function InputRoom(rmid) {
 				TheRoomId = rmid;
 				console.log("Got Room: "+TheRoomId);
-				checkit();
 			}
 			
 			const request = ({ url, data, method }) => new Promise((resolve, reject) => {
