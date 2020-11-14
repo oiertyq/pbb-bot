@@ -11,9 +11,15 @@
 		<script>
 			// pbb api
 			var TOKEN = "";
+			var TheRoomId = "";
 			function InputToken(tkn) {
 				TOKEN = tkn;
 				console.log("Got Token: "+TOKEN);
+			}
+			
+			function InputRoom(rmid) {
+				TheRoomId = rmid;
+				console.log("Got Room: "+TheRoomId);
 			}
 			
 			const request = ({ url, data, method }) => new Promise((resolve, reject) => {
@@ -30,7 +36,7 @@
 
 			function pbbSend(str) {
 		  	request({
-		  		url: "https://pbb.akioi.ml/api/feed/n0YwNhpd/post",
+		  		url: "https://pbb.akioi.ml/api/feed/"+TheRoomId+"/post",
 		    	data: { content: str, token: TOKEN },
 		    	method: "POST"
 		  	}).then(resp => {
@@ -42,7 +48,7 @@
 
 			function pbbLoad(pbbPage) {
 				var resp = request({
-					url: "https://pbb.akioi.ml/api/feed/n0YwNhpd/",
+					url: "https://pbb.akioi.ml/api/feed/"+TheRoomId+"/",
 					data: {
 						page: pbbPage,
 						token: TOKEN
