@@ -15,6 +15,7 @@
 			function InputToken(tkn) {
 				TOKEN = tkn;
 				console.log("Got Token: "+TOKEN);
+				pbbListen();
 			}
 			
 			function InputRoom(rmid) {
@@ -132,7 +133,6 @@
 			}
 			var pbbListenServiceStarted=1;
 			function pbbListen() {
-				if(TOKEN=="") return;
 				console.log("Start listening"); pbbListenServiceStarted = 0;
 				setInterval(function(){pbbLoad(1).then(resp => { for(var i=0; i<chkresp(resp);++i) { getHito(1); } });}, 20000);
 			}
