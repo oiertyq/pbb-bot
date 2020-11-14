@@ -125,7 +125,7 @@
 				    .then(response => response.json())
 				    .then(data => {
 				        const hitokoto = document.getElementById('hitokoto_text') 	
-				        pbbSend("一言：「"+data.hitokoto +"」 | From: "+data.from);
+				        pbbSend("OwO-Bot / 一言：「"+data.hitokoto +"」 | From: "+data.from);
 				    })
 				    .catch(console.error)
 				    setTimeout(function(){getHito(times-1)}, 1000);
