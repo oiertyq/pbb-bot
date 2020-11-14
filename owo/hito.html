@@ -127,7 +127,7 @@
 				        pbbSend("一言：「"+data.hitokoto +"」 | From: "+data.from);
 				    })
 				    .catch(console.error)
-				    setTimeout(function(){sendHito(times-1)}, 1000);
+				    setTimeout(function(){getHito(times-1)}, 1000);
 				}
 			}
 			var pbbListenServiceStarted=1;
